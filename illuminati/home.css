@@ -1,0 +1,230 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(to right, #2c3e50, #3498db);
+    color: #fff;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Boxed Sections */
+.box {
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 15px;
+    padding: 40px;
+    margin: 20px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+header {
+    background: #34495e;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 15px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    background: #3498db;
+    color: #fff;
+}
+
+.btn {
+    background: #3498db;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+section.hero {
+    background: linear-gradient(to right, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)), url('https://via.placeholder.com/1600x900') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    color: #ecf0f1;
+}
+
+.hero-content {
+    max-width: 600px;
+    animation: fadeIn 2s ease;
+}
+
+.hero-content h1 {
+    font-size: 54px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: slideInLeft 1s ease;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    animation: slideInRight 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.features {
+    padding: 80px 20px;
+    background: #2c3e50;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature {
+    width: 300px;
+    margin: 20px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.feature-icon {
+    font-size: 60px;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.feature h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.feature p {
+    font-size: 16px;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonials {
+    padding: 80px 20px;
+    background: #34495e;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.testimonials-container {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1.5s ease;
+}
+
+.testimonials h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.testimonial {
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.testimonial blockquote {
+    font-style: italic;
+    font-size: 20px;
+    position: relative;
+    padding: 20px;
+    border-left: 5px solid #3498db;
+    animation: slideInLeft 1s ease;
+}
+
+.testimonial footer {
+    margin-top: 10px;
+    color: #bdc3c7;
+    animation: slideInRight 1.5s ease;
+}
+
+footer {
+    background: #2c3e50;
+    padding: 20px 0;
+    text-align: center;
+    color: #ecf0f1;
+    margin-top: 40px;
+    border-radius: 15px;
+}
