@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+}
+
+.navbar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(135deg, #4a90e2, #9013fe);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.navbar li {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar li.active a,
+.navbar li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dashboard {
+    margin-left: 270px;
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.header h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.date-time {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.events, .notifications {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events h2, .notifications h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.dropdown-toggle {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background-color: #005bb5;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    z-index: 1;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content p {
+    color: #333;
+    margin: 5px 0;
+}
+
+.show {
+    display: block;
+}
+
+.forum {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.forum h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+}
+
+.post {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.post h3 {
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.post p {
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.like-btn {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.like-btn:hover {
+    background-color: #005bb5;
+}
+
+.replies {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.replies p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.reply-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.reply-input:focus {
+    outline: none;
+    border-color: #0070f3;
+    box-shadow: 0 0 5px rgba(0, 112, 243, 0.3);
+}
+
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Discussion Forums</a></li>
+        </ul>
+    </div>
+
+    <div class="dashboard">
+        <div class="header">
+            <!-- <h1>Dashboard</h1> -->
+            <div class="date-time">
+                <p id="date"></p>
+                <p id="time"></p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="events">
+                <h2>Upcoming Events</h2>
+                <button class="dropdown-toggle">Show Events</button>
+                <div class="dropdown-content">
+                    <p>Event 1: Workshop on Web Development - Sep 10, 2024</p>
+                    <p>Event 2: React.js Meetup - Sep 15, 2024</p>
+                    <p>Event 3: Tech Conference - Sep 25, 2024</p>
+                </div>
+            </div>
+            <div class="notifications">
+                <h2>Notifications</h2>
+                <button class="dropdown-toggle">Show Notifications</button>
+                <div class="dropdown-content">
+                    <p>Notification 1: Assignment Submission Deadline - Sep 12, 2024</p>
+                    <p>Notification 2: System Maintenance - Sep 20, 2024</p>
+                    <p>Notification 3: New Course Announcement - Sep 28, 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="forum">
+            <!-- <h2>Discussion Forum</h2> -->
+            <div class="post">
+                <h3>How to prepare for placements?</h3>
+                <p>Can someone guide me on how to start preparing for placements?</p>
+                <button class="like-btn">Like (<span class="like-count">0</span>)</button>
+                <div class="replies"></div>
+                <input type="text" class="reply-input" placeholder="Reply...">
+            </div>
+            <div class="post">
+                <h3>Best resources for learning React?</h3>
+                <p>What are some good resources to learn React?</p>
+                <button class="like-btn">Like (<span class="like-count">0</span>)</button>
+                <div class="replies"></div>
+                <input type="text" class="reply-input" placeholder="Reply...">
+            </div>
+        </div>
+    </div>
+
+    <script src="dash.js"></script>
+</body>
+</html>
