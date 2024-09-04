@@ -110,6 +110,7 @@ animation: fadeInLeft 1s ease-in-out;
 }
 
 .search-bar input {
+    margin-right: 21px;
 padding: 10px 20px;
 font-size: 16px;
 border-radius: 25px;
